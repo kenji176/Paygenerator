@@ -58,4 +58,7 @@ window.addEventListener('DOMContentLoaded', function () {
     swi.addEventListener('click', change_setting);
     btn.addEventListener('click', generator_pay, change_count());
     change_count()
-})
+    window.setTimeout(function () {
+        change_count();
+    }, 5000);
+});
