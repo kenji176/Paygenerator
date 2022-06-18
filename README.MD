@@ -5,7 +5,7 @@ DiscordのOauth認証等に使ってください
  
 # デモページ
 1
-https://kenji176.github.io/Paygenerator/.html
+https://kenji176.github.io/Paygenerator/index.html
 
  
 
