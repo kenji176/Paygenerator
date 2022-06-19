@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    function generator_pay() {
+    function generator_pay(callback) {
         fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
@@ -28,9 +28,26 @@ window.addEventListener('DOMContentLoaded', function () {
                 pay_link += "https://pay.paypay.ne.jp/" + randtext + "\n"
             }
         }
-        change_count()
-        navigator.clipboard.writeText(pay_link);
+        if (TXT) {
+            handleDownload(pay_link)
+        } else {
+            change_count()
+            navigator.clipboard.writeText(pay_link);
 
+        }
+    }
+
+    function handleDownload(text) {
+        var blob = new Blob([text], {
+            "type": "text/plain"
+        });
+
+        if (window.navigator.msSaveBlob) {
+            window.navigator.msSaveBlob(blob, "test.txt");
+            window.navigator.msSaveOrOpenBlob(blob, "test.txt");
+        } else {
+            document.getElementById("btn").href = window.URL.createObjectURL(blob);
+        }
     }
 
     function change_setting() {
@@ -40,11 +57,24 @@ window.addEventListener('DOMContentLoaded', function () {
             Numbrs = false
         }
     }
+
+    function change_settingtext() {
+        if (swi_text.checked) {
+            btn.setAttribute("download", "test.txt");
+            TXT = true
+        } else {
+            btn.removeAttribute("download");
+            btn.removeAttribute("href");
+            TXT = false
+        }
+    }
     const btn = document.getElementById('btn');
     const swi = document.getElementById('Switch');
+    const swi_text = document.getElementById('Switch_text');
     const num = document.getElementById('Number');
 
     let Numbrs = false;
+    let TXT = false;
 
     var toastElList = [].slice.call(document.querySelectorAll(".toast"));
     var toastList = toastElList.map(function (toastEl) {
@@ -56,6 +86,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     swi.addEventListener('click', change_setting);
-    btn.addEventListener('click', generator_pay, change_count());
+    swi_text.addEventListener('click', change_settingtext);
+    btn.addEventListener('click', generator_pay);
     change_count()
 });
