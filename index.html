@@ -1,26 +1,5 @@
 <html>
 <head>
-    <!-- Primary Meta Tags -->
-    <title>Paypay link generator</title>
-    <meta name="title" content="Paypay link generator">
-    <meta name="description" content="Paypay Link 作り放題
-    しかも無料で!!!!!!!!!!!!!!">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kenji176.github.io/Paygenerator/index.html">
-    <meta property="og:title" content="Paypay link generator">
-    <meta property="og:description" content="Paypay Link 作り放題
-    しかも無料で!!!!!!!!!!!!!!">
-    <meta property="og:image" content="">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kenji176.github.io/Paygenerator/index.html">
-    <meta property="twitter:title" content="Paypay link generator">
-    <meta property="twitter:description" content="Paypay Link 作り放題
-    しかも無料で!!!!!!!!!!!!!!">
-    <meta property="twitter:image" content="">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -32,32 +11,66 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <span class="navbar-brand mb-0 h1">Paypa?</span>
-             <span class="navbar-brand mb-0 h3 ">Total
+            <span class="navbar-brand mb-0 h1">Paypay</span>
+            <span class="navbar-brand mb-0 h3 ">Total
                 <span class="small" id="count"></span>
             </span>
         </div>
     </nav>
     <div class="container d-flex align-items-center justify-content-center mt-4">
-        <div class="d-flex align-items-center justify-content-center">
-            <div class="card" style="max-width:600px;">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <img src="PAYPAY.jpg" class="rounded me-1" width="23px">
-                        Paypay link generator</h5>
-                    <p>ランダムなPaypaylinkを指定個数生成します<br>利用は自己責任でお願いします</p>
-                    <label for="inputPassword5" class="form-label mt-2">作成個数</label>
-                    <input type="number" id="Number" class="form-control pt-0 mt-0" aria-describedby="passwordHelpBlock">
-                    <div class="d-grid gap-2 mt-2">
-                        <button class="btn btn-primary" type="button" id="btn">作成する</button>
-                        <div class="form-check form-switch d-flex d-flex align-items-center">
-                            <input class="form-check-input" type="checkbox" id="Switch" style="height:1.7rem;width:3.3rem;">
-                            <label class="form-check-label ms-2 " for="flexSwitchCheckDefault">連番を振る [1] https://pay...</label>
+        <div class="row g-4 mb-4">
+            <div class="col-12 col-md-6">
+                <div class="card" style="max-width:600px;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <img src="PAYPAY.jpg" class="rounded me-1" width="23px">
+                            Paypay link generator</h5>
+                        <p>ランダムなPaypaylinkを指定個数生成します<br>利用は自己責任でお願いします</p>
+                        <label for="inputPassword5" class="form-label mt-2">作成個数</label>
+                        <input type="number" id="Number" class="form-control pt-0 mt-0" aria-describedby="passwordHelpBlock">
+                        <div class="d-grid gap-2 mt-2">
+                            <button class="btn btn-primary" type="button" id="btn">作成する</button>
+                            <div class="form-check form-switch d-flex d-flex align-items-center">
+                                <input class="form-check-input" type="checkbox" id="Switch" style="height:1.7rem;width:3.3rem;">
+                                <label class="form-check-label ms-2 " for="flexSwitchCheckDefault">連番を振る [1] https://pay...</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card" style="max-width:600px;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            可能性の話
+                        </h5>
+                        <div class="text-wrap">
+                            過去にPaypayのLinkを全通り作って
+                            PythonでLinkが有効かどうか調べれば
+                            PaypayをGETできると
+                            浅はかなSINCは考えました<br>
+                            <hr>
+                            <p class="h4"></p>
+                            ➀ Linkの通り数 : 218,340,105,584,896個<br>
+                            <span class="ms-3 small text-muted">英数字大文字小文字</span><br>
+                            ➁ リンクを放置してる可能性 : 0.02%<br>
+                            <span class="ms-3 small text-muted">50人に一人くらい？sincが勝手に想像で数値を決めました</span><br>
+                            ③ Paypayの総ユーザー : 45,000,000人<br>
+                            <span class="ms-3 small text-muted">2022年01月21日時点</span><br>
+                            <hr>
+                            登録ユーザー×リンクを放置してる可能性÷通り数<br>
+                            45,000,000 × 0.02 ÷ 218,340,105,584,896<br>
+                            これを計算すると, 4.122009548310207e-9 となります<br>
+                            まぁよくわからないですね、見慣れた表記に直すと<br>
+                            <strong>0.000000004122009548310207%</strong>です<br>
+                            私はそっとVscodeを閉じました,おしまい。
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+
 </body>
 </html>
