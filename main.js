@@ -76,15 +76,6 @@ window.addEventListener('DOMContentLoaded', function () {
     let Numbrs = false;
     let TXT = false;
 
-    var toastElList = [].slice.call(document.querySelectorAll(".toast"));
-    var toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl, {
-            // オプション
-            delay: 60000,
-        });
-    });
-
-
     swi.addEventListener('click', change_setting);
     swi_text.addEventListener('click', change_settingtext);
     btn.addEventListener('click', generator_pay);
