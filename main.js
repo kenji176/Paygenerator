@@ -14,7 +14,11 @@ window.addEventListener('DOMContentLoaded', function () {
         fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
-                'count': num.value
+                'count': num.value,
+                'mode': no - cors,
+                'headers': {
+                    'Content-Type': 'text/plain'
+                }
             })
         });
         let pay_link = ""
@@ -75,6 +79,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let Numbrs = false;
     let TXT = false;
+
+    var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+    var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl, {
+            // オプション
+            delay: 60000,
+        });
+    });
+
 
     swi.addEventListener('click', change_setting);
     swi_text.addEventListener('click', change_settingtext);
