@@ -1,7 +1,6 @@
-# HTML-Template
+# PAYgenerator
  
-簡単で使いやすいようにbootstrapを利用しています
-DiscordのOauth認証等に使ってください
+
  
 # デモページ
 1
