@@ -14,11 +14,7 @@ window.addEventListener('DOMContentLoaded', function () {
         fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
-                'count': num.value,
-                'mode': no - cors,
-                'headers': {
-                    'Content-Type': 'text/plain'
-                }
+                'count': num.value
             })
         });
         let pay_link = ""
