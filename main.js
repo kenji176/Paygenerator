@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', function () {
+
     function change_count() {
         const counter = document.getElementById('count')
         fetch("https://script.googleusercontent.com/macros/echo?user_content_key=4xiHZycjAcTakmti5OEBAgmlDnVDaHjdZD7a_WxMHvKDiULBQgfmytz9Qb4uPNdDlIoH0RqGl98NTiaMI-LoAeCcW5RbjJx8m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMGUmVsXRxFQlDf_VZxp4m24gEMHkG6-Rqw0S7T0VsKXoh4_BZH3TefWFBqXP4ia01DKKcZoQPle&lib=M5cGVpYzPffJzlBS-LfugPf6sUuSqfdfD")
@@ -14,30 +15,123 @@ window.addEventListener('DOMContentLoaded', function () {
         fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
-                'count': num.value
+                'count': Paypay['num'].value
             })
         });
         let pay_link = ""
         const text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        for (i = 0; i < num.value; i++) {
-            if (Numbrs) {
+        for (i = 0; i < Paypay['num'].value; i++) {
+            if (Paypay['s_num'].checked) {
                 var randtext = Array.from(Array(8)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
-                pay_link += "[" + (Number(i) + 1) + "]" + "  https://pay.paypay.ne.jp/" + randtext + "\n"
+                pay_link += "[" + (Number(i) + 1) + "] " + "  https://pay.paypay.ne.jp/" + randtext + "\n"
             } else {
                 var randtext = Array.from(Array(8)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
                 pay_link += "https://pay.paypay.ne.jp/" + randtext + "\n"
             }
         }
-        if (TXT) {
-            handleDownload(pay_link)
+        if (Paypay['s_text'].checked) {
+            Paypay['btn'].setAttribute("download", "paypay.txt");
+            handleDownload(pay_link, 'Pay_btn')
         } else {
+            Paypay['btn'].removeAttribute("download");
+            Paypay['btn'].removeAttribute("href");
             change_count()
             navigator.clipboard.writeText(pay_link);
+
 
         }
     }
 
-    function handleDownload(text) {
+    function generator_amazon(callback) {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+            method: 'POST',
+            body: new URLSearchParams({
+                'count': Amazon['num'].value
+            })
+        });
+        let amazon_link = ""
+        const text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        for (i = 0; i < Amazon['num'].value; i++) {
+            if (Amazon['s_num'].checked) {
+                var rand1 = Array.from(Array(3)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var rand2 = Array.from(Array(6)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var rand3 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                amazon_link += "[" + (Number(i) + 1) + "] " + "A" + rand1 + ' ' + rand2 + ' ' + rand3 + "\n"
+            } else {
+                var rand1 = Array.from(Array(3)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var rand2 = Array.from(Array(6)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var rand3 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                amazon_link += "A" + rand1 + ' ' + rand2 + ' ' + rand3 + "\n"
+            }
+        }
+        if (Amazon['s_text'].checked) {
+            Amazon['btn'].setAttribute("download", "amazon.txt");
+            handleDownload(amazon_link, 'Amazon_btn')
+        } else {
+            Amazon['btn'].removeAttribute("download");
+            Amazon['btn'].removeAttribute("href");
+            change_count()
+            navigator.clipboard.writeText(amazon_link);
+        }
+    }
+    function generator_discord(callback) {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+            method: 'POST',
+            body: new URLSearchParams({
+                'count': discord['num'].value
+            })
+        });
+        let nitro_link = ""
+        const text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        for (i = 0; i < discord['num'].value; i++) {
+            if (discord['s_num'].checked) {
+                var nitro = Array.from(Array(16)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                nitro_link += "[" + (Number(i) + 1) + "] " + 'https://discord.gift/' + nitro + "\n"
+            } else {
+                var nitro = Array.from(Array(16)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                nitro_link += 'https://discord.gift/' + nitro + "\n"
+            }
+        }
+        if (discord['s_text'].checked) {
+            discord['btn'].setAttribute("download", "discord.txt");
+            handleDownload(nitro_link, 'Discord_btn')
+        } else {
+            discord['btn'].removeAttribute("download");
+            discord['btn'].removeAttribute("href");
+            change_count()
+            navigator.clipboard.writeText(nitro_link);
+        }
+    }
+    function generator_iTunes(callback) {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+            method: 'POST',
+            body: new URLSearchParams({
+                'count': iTunes['num'].value
+            })
+        });
+        let iTunes_link = ""
+        const text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        for (i = 0; i < iTunes['num'].value; i++) {
+            if (iTunes['s_num'].checked) {
+                var iTunesr = Array.from(Array(15)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                iTunes_link += "[" + (Number(i) + 1) + "] " + 'X' + iTunesr + "\n"
+            } else {
+                var iTunesr = Array.from(Array(15)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                iTunes_link += 'X' + iTunesr + "\n"
+            }
+        }
+        if (iTunes['s_text'].checked) {
+            iTunes['btn'].setAttribute("download", "iTunes.txt");
+            handleDownload(iTunes_link, 'iTunes_btn')
+        } else {
+            iTunes['btn'].removeAttribute("download");
+            iTunes['btn'].removeAttribute("href");
+            change_count()
+            navigator.clipboard.writeText(iTunes_link);
+        }
+    }
+
+    function handleDownload(text, btn) {
         var blob = new Blob([text], {
             "type": "text/plain"
         });
@@ -46,47 +140,37 @@ window.addEventListener('DOMContentLoaded', function () {
             window.navigator.msSaveBlob(blob, "test.txt");
             window.navigator.msSaveOrOpenBlob(blob, "test.txt");
         } else {
-            document.getElementById("btn").href = window.URL.createObjectURL(blob);
+            document.getElementById(btn).href = window.URL.createObjectURL(blob);
         }
     }
 
-    function change_setting() {
-        if (swi.checked) {
-            Numbrs = true
-        } else {
-            Numbrs = false
-        }
+    let Paypay = {
+        'btn': document.getElementById('Pay_btn'),
+        's_num': document.getElementById('Pay_Switch'),
+        's_text': document.getElementById('Pay_Switch_text'),
+        'num': document.getElementById('Pay_Number'),
     }
-
-    function change_settingtext() {
-        if (swi_text.checked) {
-            btn.setAttribute("download", "test.txt");
-            TXT = true
-        } else {
-            btn.removeAttribute("download");
-            btn.removeAttribute("href");
-            TXT = false
-        }
+    let Amazon = {
+        'btn': document.getElementById('Amazon_btn'),
+        's_num': document.getElementById('Amazon_Switch'),
+        's_text': document.getElementById('Amazon_Switch_text'),
+        'num': document.getElementById('Amazon_Number'),
     }
-    const btn = document.getElementById('btn');
-    const swi = document.getElementById('Switch');
-    const swi_text = document.getElementById('Switch_text');
-    const num = document.getElementById('Number');
-
-    let Numbrs = false;
-    let TXT = false;
-
-    var toastElList = [].slice.call(document.querySelectorAll(".toast"));
-    var toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl, {
-            // オプション
-            delay: 60000,
-        });
-    });
-
-
-    swi.addEventListener('click', change_setting);
-    swi_text.addEventListener('click', change_settingtext);
-    btn.addEventListener('click', generator_pay);
+    let discord = {
+        'btn': document.getElementById('Discord_btn'),
+        's_num': document.getElementById('Discord_Switch'),
+        's_text': document.getElementById('Discord_Switch_text'),
+        'num': document.getElementById('Discord_Number'),
+    }
+    let iTunes = {
+        'btn': document.getElementById('iTunes_btn'),
+        's_num': document.getElementById('iTunes_Switch'),
+        's_text': document.getElementById('iTunes_Switch_text'),
+        'num': document.getElementById('iTunes_Number'),
+    }
+    Amazon['btn'].addEventListener('click', generator_amazon);
+    Paypay['btn'].addEventListener('click', generator_pay);
+    discord['btn'].addEventListener('click', generator_discord);
+    iTunes['btn'].addEventListener('click', generator_iTunes);
     change_count()
 });
