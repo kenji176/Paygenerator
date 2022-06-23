@@ -130,6 +130,40 @@ window.addEventListener('DOMContentLoaded', function () {
             navigator.clipboard.writeText(iTunes_link);
         }
     }
+    function generator_FN(callback) {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+            method: 'POST',
+            body: new URLSearchParams({
+                'count': FN['num'].value
+            })
+        });
+        let FN_link = ""
+        const text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        for (i = 0; i < FN['num'].value; i++) {
+            if (FN['s_num'].checked) {
+                var FNlink1 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var FNlink2 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var FNlink3 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var FNlink4 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                FN_link += "[" + (Number(i) + 1) + "] " + FNlink1 + '-' + FNlink2 + '-' + FNlink3 + '-' + FNlink4 + "\n"
+            } else {
+                var FNlink1 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var FNlink2 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var FNlink3 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                var FNlink4 = Array.from(Array(5)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                FN_link += FNlink1 + '-' + FNlink2 + '-' + FNlink3 + '-' + FNlink4 + "\n"
+            }
+        }
+        if (FN['s_text'].checked) {
+            FN['btn'].setAttribute("download", "FN.txt");
+            handleDownload(FN_link, 'FN_btn')
+        } else {
+            FN['btn'].removeAttribute("download");
+            FN['btn'].removeAttribute("href");
+            change_count()
+            navigator.clipboard.writeText(FN_link);
+        }
+    }
 
     function handleDownload(text, btn) {
         var blob = new Blob([text], {
@@ -168,9 +202,16 @@ window.addEventListener('DOMContentLoaded', function () {
         's_text': document.getElementById('iTunes_Switch_text'),
         'num': document.getElementById('iTunes_Number'),
     }
+    let FN = {
+        'btn': document.getElementById('FN_btn'),
+        's_num': document.getElementById('FN_Switch'),
+        's_text': document.getElementById('FN_Switch_text'),
+        'num': document.getElementById('FN_Number'),
+    }
     Amazon['btn'].addEventListener('click', generator_amazon);
     Paypay['btn'].addEventListener('click', generator_pay);
     discord['btn'].addEventListener('click', generator_discord);
     iTunes['btn'].addEventListener('click', generator_iTunes);
+    FN['btn'].addEventListener('click', generator_FN);
     change_count()
 });
