@@ -164,6 +164,34 @@ window.addEventListener('DOMContentLoaded', function () {
             navigator.clipboard.writeText(FN_link);
         }
     }
+    function generator_A(callback) {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+            method: 'POST',
+            body: new URLSearchParams({
+                'count': Amagasaki['num'].value
+            })
+        });
+        let A_link = ""
+        const text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        for (i = 0; i < Amagasaki['num'].value; i++) {
+            if (Amagasaki['s_num'].checked) {
+                var Alink = Array.from(Array(13)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                A_link += "[" + (Number(i) + 1) + "] " + Alink + "\n"
+            } else {
+                var Alink = Array.from(Array(13)).map(() => text[Math.floor(Math.random() * text.length)]).join('')
+                A_link += Alink + "\n"
+            }
+        }
+        if (Amagasaki['s_text'].checked) {
+            Amagasaki['btn'].setAttribute("download", "Amagasaki.txt");
+            handleDownload(A_link, 'A_btn')
+        } else {
+            Amagasaki['btn'].removeAttribute("download");
+            Amagasaki['btn'].removeAttribute("href");
+            change_count()
+            navigator.clipboard.writeText(A_link);
+        }
+    }
 
     function handleDownload(text, btn) {
         var blob = new Blob([text], {
@@ -208,10 +236,17 @@ window.addEventListener('DOMContentLoaded', function () {
         's_text': document.getElementById('FN_Switch_text'),
         'num': document.getElementById('FN_Number'),
     }
+    let Amagasaki = {
+        'btn': document.getElementById('A_btn'),
+        's_num': document.getElementById('A_Switch'),
+        's_text': document.getElementById('A_Switch_text'),
+        'num': document.getElementById('A_Number'),
+    }
     Amazon['btn'].addEventListener('click', generator_amazon);
     Paypay['btn'].addEventListener('click', generator_pay);
     discord['btn'].addEventListener('click', generator_discord);
     iTunes['btn'].addEventListener('click', generator_iTunes);
     FN['btn'].addEventListener('click', generator_FN);
+    Amagasaki['btn'].addEventListener('click', generator_A);
     change_count()
 });
