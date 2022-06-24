@@ -192,6 +192,13 @@ window.addEventListener('DOMContentLoaded', function () {
             navigator.clipboard.writeText(A_link);
         }
     }
+    function Check_Value() {
+        if (this.value > 10000) {
+            this.value = 10000
+        } else if (this.value < 0) {
+            this.value = 0
+        }
+    }
 
     function handleDownload(text, btn) {
         var blob = new Blob([text], {
@@ -248,5 +255,9 @@ window.addEventListener('DOMContentLoaded', function () {
     iTunes['btn'].addEventListener('click', generator_iTunes);
     FN['btn'].addEventListener('click', generator_FN);
     Amagasaki['btn'].addEventListener('click', generator_A);
+    const numbers = document.querySelectorAll('input[type=number]');
+    for(i=0;i<numbers.length;i++) {
+        numbers[i].addEventListener('input', Check_Value)
+    }
     change_count()
 });
