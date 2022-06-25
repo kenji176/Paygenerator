@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     function change_count() {
         const counter = document.getElementById('count')
-        fetch("https://script.google.com/macros/s/AKfycbw37B5cIGDAkgpLf8lUnWkgkDDJw2hoLBuIPk4aF2HDOfhDUxG7yKuzVdoMrPm-jxjoNg/exec")
+        fetch("https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec")
             .then((res) => {
                 return (res.json());
             })
@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     function generator_pay(callback) {
-        fetch('https://script.google.com/macros/s/AKfycbw37B5cIGDAkgpLf8lUnWkgkDDJw2hoLBuIPk4aF2HDOfhDUxG7yKuzVdoMrPm-jxjoNg/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': Paypay['num'].value
