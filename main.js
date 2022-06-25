@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     function generator_amazon(callback) {
-        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': Amazon['num'].value
@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_discord(callback) {
-        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': discord['num'].value
@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_iTunes(callback) {
-        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': iTunes['num'].value
@@ -131,7 +131,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_FN(callback) {
-        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': FN['num'].value
@@ -165,7 +165,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_A(callback) {
-        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': Amagasaki['num'].value
