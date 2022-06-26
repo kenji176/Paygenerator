@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-dark">
+    <nav class="navbar navbar-light bg-dark d-none" id="1">
         <div class="container text-truncate ">
             <span class="navbar-brand mb-0 h1 text-white">ジェネレーター</span>
             <span class="navbar-brand mb-0 h3 text-white me-0">Total
@@ -17,7 +17,25 @@
             </span>
         </div>
     </nav>
-    <div class="container d-flex align-items-center justify-content-center mt-4">
+    <div class="modal bg-dark" tabindex="-1" id="modal" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title">please password</h5>
+                </div>
+                <div class="modal-body">
+                    <strong>String(π[2:5])+String(jp-tax)+String(Golden_ratio[2])</strong><br>
+                    <hr>
+                    <label for="inputPassword5" class="form-label">Password</label>
+                    <input type="password" id="v_p" class="form-control" aria-describedby="passwordHelpBlock">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="Verify">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex align-items-center justify-content-center mt-4 d-none" id="2">
         <div class="row  g-3 mb-4">
             <div class="col-12 col-md-6">
                 <div class="card border-secondary shadow">
@@ -244,7 +262,7 @@
 </body>
 <footer class="footer   bg-light">
     <div class="container">
-        <span class="text-muted small">このページで生成されたリンク及びサイトそのものをを販売する場合、<br>金額にかかわず、販売しようとした時点で使用料1万円をお支払いいただきます<br>寄付していただいた方は生涯無料で利用いただけます
+        <span class="text-muted small">このページで生成されたリンクを販売する場合、<br>金額にかかわず、使用料1万円をお支払いいただきます
         </span>
     </div>
 </footer>
