@@ -1,8 +1,29 @@
 window.addEventListener('DOMContentLoaded', function () {
-
+    var modals = document.getElementById('modal')
+    var myModal = new bootstrap.Modal(modals, {});
+    myModal.show()
+    const ver_btn = document.getElementById('Verify');
+    const ver_pas = document.getElementById('v_p');
+    ver_btn.addEventListener('click', async function () {
+        const resalt = await fetch('https://script.google.com/macros/s/AKfycbx21_ytQVBjKkw-dqo6CXzlyj79EU6wziXneQux_L8tx0CrX5r39Ke4Syytd0HSVW0iFA/exec', {
+            method: "POST",
+            body: new URLSearchParams({
+                'pass': ver_pas.value
+            })
+        })
+        const data = await resalt.json()
+        if (Boolean(JSON.parse(data['status']))) {
+            document.getElementById('1').classList.remove('d-none');
+            document.getElementById('2').classList.remove('d-none');
+            myModal.toggle()
+            console.log('True');
+        } else {
+            console.log('False');
+        }
+    });
     function change_count() {
         const counter = document.getElementById('count')
-        fetch("https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec")
+        fetch("https://script.googleusercontent.com/macros/echo?user_content_key=4xiHZycjAcTakmti5OEBAgmlDnVDaHjdZD7a_WxMHvKDiULBQgfmytz9Qb4uPNdDlIoH0RqGl98NTiaMI-LoAeCcW5RbjJx8m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMGUmVsXRxFQlDf_VZxp4m24gEMHkG6-Rqw0S7T0VsKXoh4_BZH3TefWFBqXP4ia01DKKcZoQPle&lib=M5cGVpYzPffJzlBS-LfugPf6sUuSqfdfD")
             .then((res) => {
                 return (res.json());
             })
@@ -12,7 +33,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     function generator_pay(callback) {
-        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': Paypay['num'].value
@@ -43,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     function generator_amazon(callback) {
-        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': Amazon['num'].value
@@ -75,7 +96,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_discord(callback) {
-        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': discord['num'].value
@@ -103,7 +124,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_iTunes(callback) {
-        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': iTunes['num'].value
@@ -131,7 +152,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_FN(callback) {
-        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxoabebpZAIknu_r1OEkvSZJYZSphNuChkiyyH2UIboZReDXfhc/exec', {
             method: 'POST',
             body: new URLSearchParams({
                 'count': FN['num'].value
@@ -165,10 +186,11 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     function generator_A(callback) {
-        fetch('https://script.google.com/macros/s/AKfycby_lD0RRBy6MaYSAe3jx2xdy1j3e_kcA-DiOOLAn8kUaDeShuvFj1Y3O01xJT0ClfRTjw/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxsPMSPbAjXLFBjXirHsq0YNTGwx-_baFVG2_MysnquoF6SqBW5qIP9dQkxFFs6w1Hogw/exec', {
             method: 'POST',
             body: new URLSearchParams({
-                'count': Amagasaki['num'].value
+                'count': Amagasaki['num'].value,
+                'select': this.id
             })
         });
         let A_link = ""
@@ -256,8 +278,8 @@ window.addEventListener('DOMContentLoaded', function () {
     FN['btn'].addEventListener('click', generator_FN);
     Amagasaki['btn'].addEventListener('click', generator_A);
     const numbers = document.querySelectorAll('input[type=number]');
-    for(i=0;i<numbers.length;i++) {
+    for (i = 0; i < numbers.length; i++) {
         numbers[i].addEventListener('input', Check_Value)
     }
     change_count()
-});
+})
