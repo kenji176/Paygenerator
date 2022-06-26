@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (Boolean(JSON.parse(data['status']))) {
             document.getElementById('1').classList.remove('d-none');
             document.getElementById('2').classList.remove('d-none');
+            document.getElementById('3').classList.remove('d-none');
             myModal.toggle()
             console.log('True');
         } else {
