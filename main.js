@@ -13,9 +13,10 @@ window.addEventListener('DOMContentLoaded', function () {
         })
         const data = await resalt.json()
         if (Boolean(JSON.parse(data['status']))) {
-            document.getElementById('1').classList.remove('d-none');
-            document.getElementById('2').classList.remove('d-none');
-            document.getElementById('3').classList.remove('d-none');
+            const faders = document.querySelectorAll('#fade');
+            for (i = 0; i < faders.length; i++) {
+                faders[i].classList.replace("opacity-0", "opacity-100");
+            }
             myModal.toggle()
             console.log('True');
         } else {
